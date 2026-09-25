@@ -1,0 +1,17 @@
+[
+  {
+    "title": "batman",
+    "genre": "sci-fi",
+    "rating": 10.0
+  },
+  {
+    "title": "dil",
+    "genre": "romcom",
+    "rating": 7.0
+  },
+  {
+    "title": "loha",
+    "genre": "story",
+    "rating": 9.0
+  }
+]
