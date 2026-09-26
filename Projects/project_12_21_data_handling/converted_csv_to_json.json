@@ -1,0 +1,32 @@
+[
+  {
+    "Date": "26-09-26",
+    "City": "Noida",
+    "Temperature": "296.32",
+    "Condition": "Clouds"
+  },
+  {
+    "Date": "26-09-26",
+    "City": "Delhi",
+    "Temperature": "296.2",
+    "Condition": "Clouds"
+  },
+  {
+    "Date": "26-09-26",
+    "City": "Kanpur",
+    "Temperature": "296.71",
+    "Condition": "Clouds"
+  },
+  {
+    "Date": "26-09-26",
+    "City": "Rania",
+    "Temperature": "309.91",
+    "Condition": "Clear"
+  },
+  {
+    "Date": "26-09-26",
+    "City": "Bazpur",
+    "Temperature": "292.71",
+    "Condition": "Rain"
+  }
+]
