@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com/"></script>
+  </head>
+  <body class="bg-gray-300 text-gray-800 font-sans p-6">
+    <div class="max-w-2xl mx-auto">
+        <h1 class="text-3xl font-bold mb-6 text-center text-blue-600">Url Shortner</h1>
+        <form action="/" method="post" class="bg-white shadow-md rounded p-6 mb-6 space-y-4">
+            <label class="block">
+                <span class="text-gray-700">Enter a long Url</span>
+                <input type="text" name="url" placeholder="yashvirpal.com" class="mt-1 block w-full border border-gray-300 rounded p-2">
+            </label>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Generate</button>
+        </form>
+        <h2 class="text-xl font-semibold mb-2"> All shorten URLs</h2>
+        {% if all_urls %}  #GInja Templating
+        <div class="overflow-x-auto">
+            <table class="w-full border border-collapse bordergray-500 text-sm">
+                <thead class="bg-gray-200">
+                    <tr>
+                        <th class="border px-4 py-2 text-left">Shorten Url</th>
+                        <th class="border px-4 py-2 text-left">Original Url</th>
+                        <th class="border px-4 py-2 text-left">Visits</th>
+                        <th class="border px-4 py-2 text-left">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for url in all_urls %}
+                    <tr class="hover:bg-gray-100">
+                        <td class="border px-4 py-2 text-blue-600 underline">
+                            <a href="{{ url_for('redirect_url', short_code=url[2]) }}" class="" target="_blank">
+                               {{ url_for('redirect_url', short_code=url[2]) }}
+                            </a>
+                           
+                        </td>
+                        <td class="border px-4 py-2">{{url[1]}}</td>
+                        <td class="border px-4 py-2">{{url[3]}}</td>
+                        <td class="border px-4 py-2">
+                            <form method="post" onsubmit="return confirm ('Delete this short url')" action="/delete/{{url[2]}}">
+                            <button type="submit" class="text-red-600">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+        {% else %}
+        <p class="text-gray-600">No URLs have been shorten</p>
+        {% endif %}
+    </div>
+  </body>
+</html>
