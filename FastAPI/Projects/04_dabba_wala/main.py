@@ -1,7 +1,10 @@
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
 from database import create_tables
-from routes.reviews import router as review_router
+
+
+from routes.orders import router as order_router
+from routes.stats import router as stats_router
 
 
 
@@ -14,15 +17,15 @@ async def lifespan(app:FastAPI):
     print("Shutting down the app")
 
 app = FastAPI(
-    title="Rangmanch Review API",
-    description="Theatre review API for Kanpur Rangmanch",
+    title="Dabba Wala API",
+    description="Order management API for Dabba Wala",
     lifespan=lifespan
     
 )
 
-app.include_router(review_router)
+app.include_router(order_router)
+app.include_router(stats_router)
 
 @app.get("/")
-def root():
-    return {"message":"Welcome to rangmanch review API"}
-   
+def health_check():
+    return {"message":"Dabba Wala API is running"}
