@@ -1,0 +1,16 @@
+
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}My CMS Admin{% endblock %}
+
+{% block branding %}
+<div id="site-name">
+    <a href="{% url 'admin:index' %}">My CMS Dashboard</a>
+</div>
+{% endblock %}
+
+{% block extrastyle %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/admin-custom.css' %}">
+{% endblock %}

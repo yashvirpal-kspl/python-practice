@@ -1,0 +1,80 @@
+C:\Users\yashvir.pal\Documents\Projects\Practice\django-project\cms\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\yashvir.pal\Documents\Projects\Practice\django-project\config\settings.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /test/ HTTP/1.1" 200 284
+"GET /admin/cms/page/?title=Test+2 HTTP/1.1" 200 12610
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+"GET /static/admin/css/base.css HTTP/1.1" 304 0
+"GET /static/admin/js/theme.js HTTP/1.1" 304 0
+"GET /static/css/admin-custom.css HTTP/1.1" 404 1927
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+"GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+"GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+"GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+"GET /static/admin/js/core.js HTTP/1.1" 304 0
+"GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+"GET /static/admin/js/actions.js HTTP/1.1" 304 0
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/img/search.svg HTTP/1.1" 304 0
+"GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /static/admin/img/icon-no.svg HTTP/1.1" 304 0
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2908
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+"GET /static/admin/js/filters.js HTTP/1.1" 304 0
+"GET /admin/cms/page/?title=Test+2 HTTP/1.1" 200 12610
+C:\Users\yashvir.pal\Documents\Projects\Practice\django-project\config\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\yashvir.pal\Documents\Projects\Practice\django-project\config\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\yashvir.pal\Documents\Projects\Practice\django-project\config\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\yashvir.pal\Documents\Projects\Practice\django-project\config\settings.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /admin/cms/page/?title=Test+2 HTTP/1.1" 200 12610
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2908
+"GET /static/css/admin-custom.css HTTP/1.1" 200 889
+"GET /admin/cms/page/?title=Test+2 HTTP/1.1" 200 12610
+"GET /static/css/admin-custom.css HTTP/1.1" 304 0
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2908
+"GET /admin/cms/page/?title=Test+2 HTTP/1.1" 200 12610
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2908
+"GET /test/ HTTP/1.1" 200 284
+"GET /admin/cms/page/?title=Test+2 HTTP/1.1" 200 12610
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+"GET /static/admin/css/base.css HTTP/1.1" 304 0
+"GET /static/css/admin-custom.css HTTP/1.1" 304 0
+"GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+"GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+"GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+"GET /static/admin/js/theme.js HTTP/1.1" 304 0
+"GET /static/admin/js/actions.js HTTP/1.1" 304 0
+"GET /static/admin/js/core.js HTTP/1.1" 304 0
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+"GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+"GET /static/admin/img/search.svg HTTP/1.1" 304 0
+"GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+"GET /static/admin/img/icon-no.svg HTTP/1.1" 304 0
+"GET /static/admin/js/filters.js HTTP/1.1" 304 0
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2908
+"GET /admin/cms/page/? HTTP/1.1" 200 13183
+"GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2908

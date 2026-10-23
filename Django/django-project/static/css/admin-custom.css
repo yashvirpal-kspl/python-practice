@@ -1,0 +1,58 @@
+
+/* Main header */
+#header {
+    background: #111827;
+    color: #ffffff;
+    padding: 16px 24px;
+}
+
+/* Admin branding */
+#site-name a {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* Main page background */
+body {
+    background: #f3f4f6;
+}
+
+/* Main content headings */
+h1, h2, h3 {
+    color: #111827;
+}
+
+/* Links */
+a:link, a:visited {
+    color: #4f46e5;
+}
+
+/* Buttons */
+.button,
+input[type="submit"],
+input[type="button"],
+.submit-row input {
+    background: #4f46e5;
+    border-radius: 6px;
+    border: none;
+    padding: 8px 14px;
+}
+
+/* Hover effect */
+.button:hover,
+input[type="submit"]:hover,
+.submit-row input:hover {
+    background: #4338ca;
+}
+
+/* Tables */
+#changelist table thead th {
+    background: #e5e7eb;
+}
+
+/* Content spacing */
+#content {
+    padding: 24px;
+}
