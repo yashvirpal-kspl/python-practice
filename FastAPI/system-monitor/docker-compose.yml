@@ -1,0 +1,38 @@
+services:
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      DB_PATH: /data/monitor.db
+      # Report the host's root filesystem (mounted read-only below) instead of the container's
+      DISK_PATHS: ${DISK_PATHS:-/=/host}
+      # Trust X-Forwarded-For from the dashboard container. The backend is only published on
+      # localhost by default; if you expose it publicly, set this to your proxy's address.
+      FORWARDED_ALLOW_IPS: ${FORWARDED_ALLOW_IPS:-*}
+    volumes:
+      - monitor-data:/data
+      - /:/host:ro
+    # Uncomment so "Top processes" lists the host's processes, not just the container's:
+    # pid: host
+    ports:
+      # Bind address for the API. Keep 127.0.0.1 unless other monitors must poll this server.
+      - "${BACKEND_BIND:-127.0.0.1}:8000:8000"
+
+  frontend:
+    build: ./frontend
+    restart: unless-stopped
+    depends_on:
+      backend:
+        condition: service_healthy
+    environment:
+      BACKEND_URL: http://backend:8000
+      # Set to false only when serving over plain http on a non-localhost address
+      COOKIE_SECURE: ${COOKIE_SECURE:-}
+    ports:
+      - "${FRONTEND_BIND:-0.0.0.0}:3000:3000"
+
+volumes:
+  monitor-data:

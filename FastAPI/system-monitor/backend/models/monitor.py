@@ -130,3 +130,46 @@ class ServerOut(BaseModel):
     name: str
     url: str
     enabled: bool
+
+
+class AdminLoginIn(BaseModel):
+    email: EmailStr
+    password: str = Field(max_length=200)
+
+
+class SessionOut(BaseModel):
+    token: str
+    expires_in: int  # seconds
+
+
+class OverviewItem(BaseModel):
+    user_id: int
+    owner_email: str | None  # None = the admin (this host or the admin's own servers)
+    name: str
+    url: str | None
+    enabled: bool
+    is_host: bool
+    status: str  # ok | down | pending | disabled
+    last_seen: float | None
+    cpu: float | None
+    mem: float | None
+    disk: float | None
+    load1: float | None
+
+
+class Overview(BaseModel):
+    users: int
+    servers: int
+    items: list[OverviewItem]
+
+
+class AdminUser(BaseModel):
+    id: int
+    email: str
+    created: float
+    has_key: bool
+    servers: int
+
+
+class AdminAlert(AlertRecord):
+    owner_email: str | None

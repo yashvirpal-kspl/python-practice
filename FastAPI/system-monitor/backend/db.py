@@ -42,6 +42,20 @@ CREATE TABLE IF NOT EXISTS servers (
     UNIQUE(user_id, name)
 );
 
+-- single admin account (id is always 1), synced from ADMIN_EMAIL / ADMIN_PASSWORD at startup
+CREATE TABLE IF NOT EXISTS admin_account (
+    id INTEGER PRIMARY KEY CHECK (id = 1),
+    email TEXT NOT NULL,
+    password_hash TEXT NOT NULL
+);
+
+-- admin login sessions; only a hash of the token is stored
+CREATE TABLE IF NOT EXISTS sessions (
+    token_hash TEXT PRIMARY KEY,
+    created REAL NOT NULL,
+    expires REAL NOT NULL
+);
+
 -- user_id 0 is the admin / the host itself and has no row here
 CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,

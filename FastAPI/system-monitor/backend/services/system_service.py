@@ -59,17 +59,25 @@ def get_memory_info():
     }
 
 
+def _disk_targets():
+    """(label, path, device, fstype) for each disk to report."""
+    if settings.disk_list:
+        return [(label, path, path, "") for label, path in settings.disk_list]
+    return [(p.mountpoint, p.mountpoint, p.device, p.fstype)
+            for p in psutil.disk_partitions(all=False)]
+
+
 def get_disk_info():
     disks = []
-    for part in psutil.disk_partitions(all=False):
+    for label, path, device, fstype in _disk_targets():
         try:
-            usage = psutil.disk_usage(part.mountpoint)
+            usage = psutil.disk_usage(path)
         except (PermissionError, OSError):
             continue
         disks.append({
-            "mountpoint": part.mountpoint,
-            "device": part.device,
-            "fstype": part.fstype,
+            "mountpoint": label,
+            "device": device,
+            "fstype": fstype,
             "total_gib": round(usage.total / GIB, 2),
             "used_gib": round(usage.used / GIB, 2),
             "free_gib": round(usage.free / GIB, 2),

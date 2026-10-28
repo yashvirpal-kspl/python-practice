@@ -9,7 +9,7 @@ from config import settings
 from db import connect
 from models.monitor import SystemSnapshot
 from netguard import check_url
-from services import alert_service, history_service, system_service
+from services import admin_auth, alert_service, history_service, system_service
 
 log = logging.getLogger("collector")
 
@@ -74,6 +74,7 @@ def collect_once():
             list(pool.map(lambda s: _poll_remote(s, client), servers))
 
     history_service.prune()
+    admin_auth.prune_sessions()
 
 
 async def run_collector():

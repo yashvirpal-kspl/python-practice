@@ -4,7 +4,8 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
+    # Run from backend/, the shared .env lives one level up (later files win)
+    model_config = SettingsConfigDict(env_file=("../.env", ".env"), extra="ignore")
 
     node_name: str = socket.gethostname()
     api_key: str = ""  # empty = auth disabled (dev only)
@@ -23,6 +24,13 @@ class Settings(BaseSettings):
     alert_to: str = ""  # comma separated recipients
     alert_cooldown: int = 1800  # seconds before re-sending an unchanged alert
 
+    # Admin login with email + password (in addition to the API_KEY, which stays for machine access)
+    admin_email: str = ""
+    admin_password: str = ""  # at least 12 characters; hashed in the DB, changing it logs the admin out
+    admin_session_hours: int = 12
+    login_max_failures: int = 5  # failed logins per IP before a lockout
+    login_lock_minutes: int = 15
+
     # Public / multi-user
     allow_registration: bool = True
     max_servers_per_user: int = 5
@@ -38,6 +46,10 @@ class Settings(BaseSettings):
     disk_warn: float = 80
     disk_crit: float = 90
 
+    # Disks to report as "label=path" pairs, comma separated, e.g. "/=/host,/data=/host/mnt/data".
+    # Empty = auto-detect partitions. Needed in Docker, where partitions are the container's own.
+    disk_paths: str = ""
+
     # File watching
     watch_paths: str = ""  # comma separated
     watch_email: bool = False
@@ -45,6 +57,17 @@ class Settings(BaseSettings):
     @property
     def recipients(self) -> list[str]:
         return [a.strip() for a in self.alert_to.split(",") if a.strip()]
+
+    @property
+    def disk_list(self) -> list[tuple[str, str]]:
+        pairs = []
+        for item in self.disk_paths.split(","):
+            item = item.strip()
+            if not item:
+                continue
+            label, _, path = item.partition("=")
+            pairs.append((label.strip(), (path or label).strip()))
+        return pairs
 
     @property
     def watch_list(self) -> list[str]:
